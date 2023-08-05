@@ -5,11 +5,14 @@ type Props = {
   problemDescription: string;
 };
 
-const Description = (props: Props) => {
+const Description = ({ problemName, problemDescription }: Props) => {
   return (
     <div>
-      <h1 className="text-4xl font-bold">{props.problemName}</h1>
-      <p className="text-xl">{props.problemDescription}</p>
+      <h1 className="text-4xl font-bold">{problemName}</h1>
+      {/* Problem Statement(paragraphs) */}
+      <div className="text-sm">
+        <div dangerouslySetInnerHTML={{ __html: problemDescription }} />
+      </div>
     </div>
   );
 };
