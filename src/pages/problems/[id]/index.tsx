@@ -6,7 +6,7 @@ import { useState } from "react";
 import Description from "./Description";
 import { problems } from "~/utils/problems";
 import { toast } from "react-toastify";
-
+import Split from "react-split";
 export default function Problem() {
   const router = useRouter();
   const { id } = router.query;
@@ -51,16 +51,25 @@ export default function Problem() {
         <meta name="description" content="become an expert" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex  flex-col items-center gap-48">
-        <Description
-          problemName={problem.title}
-          problemDescription={problem.problemStatement}
-        />
-        <CodeEditor
-          codeEditorInput={codeEditorInput}
-          setCodeEditorInput={setCodeEditorInput}
-        />
-        <Examples handleRunCode={handleRun} />
+      <main>
+        <Split className="split">
+          <Description
+            problemName={problem.title}
+            problemDescription={problem.problemStatement}
+          />
+          <Split
+            className="h-[calc(100vh-94px)]"
+            direction="vertical"
+            sizes={[60, 40]}
+            minSize={60}
+          >
+            <CodeEditor
+              codeEditorInput={codeEditorInput}
+              setCodeEditorInput={setCodeEditorInput}
+            />
+            <Examples handleRunCode={handleRun} />
+          </Split>
+        </Split>
       </main>
     </>
   );

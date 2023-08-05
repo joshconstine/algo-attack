@@ -4,6 +4,7 @@ import { EditorView, keymap } from "@codemirror/view";
 import { defaultKeymap } from "@codemirror/commands";
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
+import { javascript } from "@codemirror/lang-javascript";
 
 type Props = {
   codeEditorInput: string;
@@ -15,13 +16,13 @@ export default function CodeEditor({
   setCodeEditorInput,
 }: Props) {
   return (
-    <div className="h-16 w-1/2">
+    <div className="h-full w-full overflow-auto">
       <CodeMirror
         value={codeEditorInput}
         onChange={(value) => setCodeEditorInput(value)}
-        height="300px"
         width="100%"
-        extensions={[keymap.of(defaultKeymap)]}
+        height="500px"
+        extensions={[keymap.of(defaultKeymap), javascript()]}
         theme={vscodeDark}
       />
     </div>
