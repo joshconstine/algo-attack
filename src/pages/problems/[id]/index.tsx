@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import CodeEditor from "./CodeEditor";
 import { Examples } from "./Examples";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Description from "./Description";
 import { problems } from "~/utils/problems";
 import { toast } from "react-toastify";
@@ -12,8 +12,18 @@ export default function Problem() {
   const { id } = router.query;
 
   const problem = problems[Number(id)];
-  const [codeEditorInput, setCodeEditorInput] = useState(problem?.starterCode);
 
+  const savedInput = localStorage?.getItem(`${id}`);
+  const defaultVal = savedInput
+    ? JSON.parse(savedInput).codeEditorInput
+    : problem?.starterCode;
+  const [codeEditorInput, setCodeEditorInput] = useState(defaultVal);
+  useEffect(() => {
+    localStorage.setItem(
+      `${id}`,
+      JSON.stringify({ codeEditorInput: codeEditorInput })
+    );
+  }, [codeEditorInput]);
   if (!problem) return null;
   const handleRun = () => {
     try {
