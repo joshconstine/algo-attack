@@ -7,7 +7,7 @@ type Props = {
 
 const Description = ({ problemName, problemDescription }: Props) => {
   return (
-    <div>
+    <div className="m-2 rounded-lg  bg-white p-2">
       <h1 className="text-4xl font-bold">{problemName}</h1>
       {/* Problem Statement(paragraphs) */}
       <div className="text-sm">

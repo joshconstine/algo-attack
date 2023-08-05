@@ -51,23 +51,26 @@ export default function Problem() {
         <meta name="description" content="become an expert" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="bg-gray-200">
         <Split className="split">
           <Description
             problemName={problem.title}
             problemDescription={problem.problemStatement}
           />
           <Split
-            className="h-[calc(100vh-94px)]"
+            className="h-[calc(100vh-100px)]"
             direction="vertical"
-            sizes={[60, 40]}
-            minSize={60}
+            sizes={[60, 30]}
           >
-            <CodeEditor
-              codeEditorInput={codeEditorInput}
-              setCodeEditorInput={setCodeEditorInput}
-            />
-            <Examples handleRunCode={handleRun} />
+            <div className="m-4 flex flex-col items-center">
+              <CodeEditor
+                codeEditorInput={codeEditorInput}
+                setCodeEditorInput={setCodeEditorInput}
+              />
+            </div>
+            <div className="m-4 flex flex-col items-center">
+              <Examples handleRunCode={handleRun} />
+            </div>
           </Split>
         </Split>
       </main>
