@@ -43,7 +43,7 @@ export const Examples = ({ handleRunCode, examples }: Props) => {
       </div>
       <div>
         {examples.length > 0 && (
-          <div className="my-4 font-semibold">
+          <div className="my-4 ">
             <p className="mt-4 text-sm font-medium ">Input:</p>
             <div className="bg-dark-fill-3 mt-2 w-full cursor-text rounded-lg border border-transparent px-3 py-[10px] ">
               {examples[focusedExapmle]?.inputText}
@@ -51,6 +51,10 @@ export const Examples = ({ handleRunCode, examples }: Props) => {
             <p className="mt-4 text-sm font-medium ">Output:</p>
             <div className="bg-dark-fill-3 mt-2 w-full cursor-text rounded-lg border border-transparent px-3 py-[10px] ">
               {examples[focusedExapmle]?.outputText}
+            </div>
+            <p className="mt-4 text-sm font-medium ">Explanation:</p>
+            <div className="bg-dark-fill-3 mt-2 w-full cursor-text rounded-lg border border-transparent px-3  ">
+              {examples[focusedExapmle]?.explanation}
             </div>
           </div>
         )}

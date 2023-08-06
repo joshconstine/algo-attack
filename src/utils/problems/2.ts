@@ -35,7 +35,26 @@ export const multiply: Problem = {
   title: "2. multiply",
   problemStatement: `<p class='mt-3'>
 multiply the params a,b  and return the result.</p>`,
-  examples: [],
+  examples: [
+    {
+      id: 1,
+      inputText: "a = 2, b = 4",
+      outputText: "8",
+      explanation: "Because 2 * 4 = 8.",
+    },
+    {
+      id: 2,
+      inputText: "a = 3, b = 2",
+      outputText: "6",
+      explanation: "Because 3 * 2 = 6.",
+    },
+    {
+      id: 3,
+      inputText: "a = 3, b = 3",
+      outputText: "9",
+      explanation: "Because 3 * 3 = 9.",
+    },
+  ],
   constraints: ``,
   handlerFunction: handler,
   starterCode: starterCode,

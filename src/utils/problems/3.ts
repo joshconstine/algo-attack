@@ -64,6 +64,7 @@ export const twoSum: Problem = {
       id: 3,
       inputText: " nums = [3,3], target = 6",
       outputText: "[0,1]",
+      explanation: "Because nums[0] + nums[1] == 6, we return [0, 1].",
     },
   ],
   constraints: `<li class='mt-2'>

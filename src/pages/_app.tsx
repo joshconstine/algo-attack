@@ -28,7 +28,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           </div>
           <ThemeSwitcher />
           <Link href="/">
-            <span>Home</span>
+            <span>Problems</span>
           </Link>
         </nav>
         <Component {...pageProps} />
