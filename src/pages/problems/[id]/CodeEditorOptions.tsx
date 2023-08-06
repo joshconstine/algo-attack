@@ -20,9 +20,14 @@ const EDITOR_FONT_SIZES = [
 
 function CodeEditorOptions({ handleReset, setFontSize, fontSize }: Props) {
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full justify-between p-2">
       <div>
-        <button onClick={() => handleReset()}>Reset</button>
+        <button
+          onClick={() => handleReset()}
+          className="rounded bg-blue-500 px-2  text-white hover:bg-blue-700"
+        >
+          Reset
+        </button>
       </div>
       <div>
         Font Size:

@@ -69,7 +69,7 @@ export default function Problem() {
             direction="vertical"
             sizes={[60, 30]}
           >
-            <div className="m-4 flex flex-col items-center">
+            <div className="m-2 flex flex-col items-center rounded-lg bg-white p-2">
               <CodeEditorOptions
                 setFontSize={setFontSize}
                 fontSize={fontSize}
@@ -81,7 +81,7 @@ export default function Problem() {
                 setCodeEditorInput={setCodeEditorInput}
               />
             </div>
-            <div className="m-4 flex flex-col items-center">
+            <div className="m-2 flex flex-col items-center">
               <Examples handleRunCode={handleRun} />
             </div>
           </Split>
