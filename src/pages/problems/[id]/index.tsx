@@ -5,8 +5,8 @@ import { Examples } from "./Examples";
 import { useEffect, useState } from "react";
 import Description from "./Description";
 import { problems } from "~/utils/problems";
-import { toast } from "react-toastify";
 import Split from "react-split";
+import CodeEditorOptions from "./CodeEditorOptions";
 export default function Problem() {
   const router = useRouter();
   const { id } = router.query;
@@ -18,6 +18,7 @@ export default function Problem() {
     ? JSON.parse(savedInput).codeEditorInput
     : problem?.starterCode;
   const [codeEditorInput, setCodeEditorInput] = useState(defaultVal);
+  const [fontSize, setFontSize] = useState("16px");
   useEffect(() => {
     localStorage.setItem(
       `${id}`,
@@ -35,10 +36,6 @@ export default function Problem() {
         const success = problem.handlerFunction(cb);
         if (success) {
           window.alert("Congrats! All tests passed!");
-          // setSuccess(true);
-          // setTimeout(() => {
-          //   setSuccess(false);
-          // }, 4000);
         }
       }
     } catch (e: any) {
@@ -73,7 +70,13 @@ export default function Problem() {
             sizes={[60, 30]}
           >
             <div className="m-4 flex flex-col items-center">
+              <CodeEditorOptions
+                setFontSize={setFontSize}
+                fontSize={fontSize}
+                handleReset={() => setCodeEditorInput(problem.starterCode)}
+              />
               <CodeEditor
+                fontSize={fontSize}
                 codeEditorInput={codeEditorInput}
                 setCodeEditorInput={setCodeEditorInput}
               />
