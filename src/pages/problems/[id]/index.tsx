@@ -7,10 +7,11 @@ import Description from "./Description";
 import { problems } from "~/utils/problems";
 import Split from "react-split";
 import CodeEditorOptions from "./CodeEditorOptions";
+import { useTheme } from "next-themes";
 export default function Problem() {
   const router = useRouter();
   const { id } = router.query;
-
+  const { theme } = useTheme();
   const problem = problems[Number(id)];
 
   const savedInput = localStorage?.getItem(`${id}`);
@@ -65,7 +66,7 @@ export default function Problem() {
         <meta name="description" content="become an expert" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-200">
+      <main className={`${theme === "light" ? "bg-gray-500" : "bg-black"}`}>
         <Split className="split">
           <Description
             problemName={problem.title}
@@ -76,7 +77,11 @@ export default function Problem() {
             direction="vertical"
             sizes={[60, 30]}
           >
-            <div className="m-2 flex flex-col items-center rounded-lg bg-white p-2">
+            <div
+              className={`m-2 flex flex-col items-center rounded-lg ${
+                theme === "light" ? "bg-white" : "bg-slate-400"
+              } p-2`}
+            >
               <CodeEditorOptions
                 setFontSize={setFontSize}
                 fontSize={fontSize}

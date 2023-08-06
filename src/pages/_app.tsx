@@ -21,14 +21,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
     <SessionProvider session={session}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <nav className="flex flex-wrap items-center  bg-teal-500 p-4">
-          <div className="mr-6 flex flex-shrink-0 items-center text-white">
+          <div className="mr-6 flex flex-shrink-0 items-center">
             <span className="text-xl font-semibold tracking-tight">
               Algo Attack
             </span>
           </div>
           <ThemeSwitcher />
           <Link href="/">
-            <span className="text-white">Home</span>
+            <span>Home</span>
           </Link>
         </nav>
         <Component {...pageProps} />
