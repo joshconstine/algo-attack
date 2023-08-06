@@ -17,6 +17,9 @@ export default function Home() {
           <Link href="/problems/2">
             <span className="underline">multiply</span>
           </Link>
+          <Link href="/problems/3">
+            <span className="underline">two-sum</span>
+          </Link>
         </div>
       </main>
     </>

@@ -21,7 +21,7 @@ export default function CodeEditor({
         value={codeEditorInput}
         onChange={(value) => setCodeEditorInput(value)}
         width="100%"
-        height="500px"
+        height="1000px"
         extensions={[keymap.of(defaultKeymap), javascript()]}
         theme={vscodeDark}
       />
