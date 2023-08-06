@@ -20,7 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <nav className="flex flex-wrap items-center  bg-teal-500 p-4">
+        <nav className="flex flex-wrap items-center  bg-sky-700 p-4">
           <div className="mr-6 flex flex-shrink-0 items-center">
             <span className="text-xl font-semibold tracking-tight">
               Algo Attack

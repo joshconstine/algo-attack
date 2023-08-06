@@ -17,7 +17,6 @@ export const Examples = ({ handleRunCode, examples }: Props) => {
       } flex flex-col gap-2`}
     >
       <div className={` flex  justify-between `}>
-        <h1>Run your code here</h1>
         <div>
           <button
             className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"

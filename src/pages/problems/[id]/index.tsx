@@ -71,7 +71,7 @@ export default function Problem() {
         <meta name="description" content="become an expert" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${theme === "light" ? "bg-gray-500" : "bg-black"}`}>
+      <main className={`${theme === "light" ? "bg-gray-500" : "bg-black "}`}>
         <Split className="split">
           <Description
             problemName={problem.title}
