@@ -99,7 +99,7 @@ export default function Problem() {
               />
             </div>
             <div className="m-2 flex flex-col items-center">
-              <Examples handleRunCode={handleRun} />
+              <Examples handleRunCode={handleRun} examples={problem.examples} />
             </div>
           </Split>
         </Split>
