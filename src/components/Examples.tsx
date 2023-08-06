@@ -12,7 +12,7 @@ export const Examples = ({ handleRunCode, examples }: Props) => {
   const [focusedExapmle, setFocusedExample] = React.useState(0);
   return (
     <div
-      className={`h-full w-full rounded-lg p-2 ${
+      className={` w-full rounded-lg p-2 ${
         theme === "light" ? "bg-white" : "bg-slate-400"
       } flex flex-col gap-2`}
     >

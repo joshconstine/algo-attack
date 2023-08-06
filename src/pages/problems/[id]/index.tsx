@@ -81,6 +81,7 @@ export default function Problem() {
             className="h-[calc(100vh-100px)]"
             direction="vertical"
             sizes={[60, 30]}
+            minSize={350}
           >
             <div
               className={`m-2 flex flex-col items-center rounded-lg ${

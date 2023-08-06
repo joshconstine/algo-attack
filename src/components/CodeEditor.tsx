@@ -17,12 +17,12 @@ export default function CodeEditor({
   setCodeEditorInput,
 }: Props) {
   return (
-    <div className="h-full w-full overflow-auto">
+    <div className=" w-full overflow-auto">
       <CodeMirror
         value={codeEditorInput}
         onChange={(value) => setCodeEditorInput(value)}
         width="100%"
-        height="1000px"
+        height="800px"
         extensions={[keymap.of(defaultKeymap), javascript()]}
         theme={vscodeDark}
         style={{ fontSize: fontSize }}
