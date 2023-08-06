@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import CodeEditor from "./CodeEditor";
 import { Examples } from "./Examples";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Description from "./Description";
 import { problems } from "~/utils/problems";
 import Split from "react-split";
@@ -14,11 +14,18 @@ export default function Problem() {
   const problem = problems[Number(id)];
 
   const savedInput = localStorage?.getItem(`${id}`);
+  const savedFontSize = localStorage?.getItem(`fontSize`);
   const defaultVal = savedInput
     ? JSON.parse(savedInput).codeEditorInput
     : problem?.starterCode;
+  const defaultFontSize = savedFontSize ? JSON.parse(savedFontSize) : "16px";
   const [codeEditorInput, setCodeEditorInput] = useState(defaultVal);
-  const [fontSize, setFontSize] = useState("16px");
+  const [fontSize, setFontSize] = useState(defaultFontSize);
+
+  useEffect(() => {
+    localStorage.setItem(`fontSize`, JSON.stringify(fontSize));
+  }, [fontSize]);
+
   useEffect(() => {
     localStorage.setItem(
       `${id}`,
