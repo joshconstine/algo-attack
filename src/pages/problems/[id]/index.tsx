@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import CodeEditor from "./CodeEditor";
 import { Examples } from "./Examples";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Description from "./Description";
 import { problems } from "~/utils/problems";
 import Split from "react-split";

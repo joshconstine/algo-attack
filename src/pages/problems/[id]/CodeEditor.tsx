@@ -1,5 +1,5 @@
 import React from "react";
-import { EditorView, keymap } from "@codemirror/view";
+import { keymap } from "@codemirror/view";
 import { defaultKeymap } from "@codemirror/commands";
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
@@ -28,5 +28,6 @@ export default function CodeEditor({
         style={{ fontSize: fontSize }}
       />
     </div>
+    //
   );
 }
