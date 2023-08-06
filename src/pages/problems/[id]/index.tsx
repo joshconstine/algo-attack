@@ -1,26 +1,30 @@
-//@eslint-disable
+"use client";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import CodeEditor from "./CodeEditor";
-import { Examples } from "./Examples";
+import CodeEditor from "../../../components/CodeEditor";
+import { Examples } from "../../../components/Examples";
 import { useEffect, useState } from "react";
-import Description from "./Description";
+import Description from "../../../components/Description";
 import { problems } from "~/utils/problems";
 import Split from "react-split";
-import CodeEditorOptions from "./CodeEditorOptions";
+import CodeEditorOptions from "../../../components/CodeEditorOptions";
 import { useTheme } from "next-themes";
 export default function Problem() {
   const router = useRouter();
   const { id } = router.query;
   const { theme } = useTheme();
   const problem = problems[Number(id)];
-
-  const savedInput = localStorage?.getItem(`${id}`);
-  const savedFontSize = localStorage?.getItem(`fontSize`);
-  const defaultVal = savedInput
-    ? JSON.parse(savedInput).codeEditorInput
-    : problem?.starterCode;
-  const defaultFontSize = savedFontSize ? JSON.parse(savedFontSize) : "16px";
+  let defaultVal = problem?.starterCode || "";
+  let defaultFontSize = "16px";
+  if (typeof window !== "undefined") {
+    // Perform localStorage action
+    const savedInput = localStorage?.getItem(`${id}`);
+    const savedFontSize = localStorage?.getItem(`fontSize`);
+    defaultVal = savedInput
+      ? JSON.parse(savedInput).codeEditorInput
+      : problem?.starterCode;
+    defaultFontSize = savedFontSize ? JSON.parse(savedFontSize) : "16px";
+  }
   const [codeEditorInput, setCodeEditorInput] = useState(defaultVal);
   const [fontSize, setFontSize] = useState(defaultFontSize);
 
